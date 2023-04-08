@@ -1,6 +1,6 @@
-const { agoraStatesDiscussions } = require('../repository/discussions');
+const { agoraStatesDiscussions } = require("../repository/discussions");
 
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
@@ -11,7 +11,7 @@ const discussionsController = {
     if (isParams) {
       // true -> 페이징
       const { page, limit } = req.query;
-      console.log(`${page} / ${limit}`);
+      // console.log(`${page} / ${limit}`);
       const array = [];
       const start = +page * +limit; // 10개 씩이면 1 * 10
       const end = start + +limit;
@@ -19,8 +19,7 @@ const discussionsController = {
       for (let i = start; i < end; i++) {
         array.push(discussionsData[i]);
       }
-      console.log(`${start} - ${end}`);
-      console.log(array);
+
       // console.log(array.map((item) => item.id || null));
       res.json(array);
     } else {
@@ -35,7 +34,7 @@ const discussionsController = {
     const filtered = discussionsData.filter((item) => item.id === Number(id));
 
     if (filtered.length === 0) {
-      res.status(404).send('Not Found....!');
+      res.status(404).send("Not Found....!");
     } else {
       res.status(200).send(filtered[0]);
     }
@@ -52,7 +51,7 @@ const discussionsController = {
       id,
       createdAt: new Date().toLocaleString(),
       title,
-      url: 'https://github.com/codestates-seb/agora-states-fe/discussions/45',
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
       author,
       answer: null,
       bodyHtml,
@@ -60,7 +59,7 @@ const discussionsController = {
     };
 
     discussionsData.unshift(newDiscussion);
-    res.status(201).send('Sucessfully added discussion...!');
+    res.status(201).send("Sucessfully added discussion...!");
   },
 
   deleteDiscussion: (req, res) => {
