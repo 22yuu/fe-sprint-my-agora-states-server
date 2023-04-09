@@ -37,6 +37,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "react-icons": "^4.8.0",
+    "react-loading": "^2.0.3",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

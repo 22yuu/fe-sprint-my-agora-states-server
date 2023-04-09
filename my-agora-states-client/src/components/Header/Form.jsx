@@ -1,7 +1,7 @@
 import React from "react";
 import { addDiscussion } from "../../api/DiscussionsData";
 
-const Form = ({ page, limit, updateDiscussion, updatePage }) => {
+const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
